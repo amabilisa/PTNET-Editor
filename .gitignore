@@ -1,0 +1,7 @@
+.directory
+*~
+*.o
+ptnet
+Makefile
+graph.dot
+build/*

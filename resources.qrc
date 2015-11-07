@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/animate.png</file>
+        <file>images/place.png</file>
+        <file>images/transition.png</file>
+        <file>images/cursor.png</file>
+        <file>images/arc.png</file>
+        <file>images/token-.png</file>
+        <file>images/token+.png</file>
+        <file>schemas/anyElement.xsd</file>
+        <file>schemas/conventions.xsd</file>
+        <file>schemas/pnmlcoremodel.xsd</file>
+        <file>schemas/ptnet.xsd</file>
+    </qresource>
+</RCC>

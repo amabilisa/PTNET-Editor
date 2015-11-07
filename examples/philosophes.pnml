@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+    <net id="i1842191568" type="http://www.pnml.org/version-2009/grammar/ptnet">
+        <name>
+            <text>philo_gen</text>
+        </name>
+        <page id="page0">
+            <name>
+                <text>philo_gen</text>
+            </name>
+            <place id="P0">
+                <name>
+                    <text>FORKS</text>
+                    <graphics>
+                        <offset x="-53" y="9"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2479" y="2463"/>
+                </graphics>
+                <initialMarking>
+                    <text>3</text>
+                </initialMarking>
+            </place>
+            <place id="P1">
+                <name>
+                    <text>THINK_1</text>
+                    <graphics>
+                        <offset x="35" y="26"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2589" y="2364"/>
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            <place id="P2">
+                <name>
+                    <text>EAT_1</text>
+                    <graphics>
+                        <offset x="40" y="40"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2685" y="2276"/>
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            <place id="P3">
+                <name>
+                    <text>THINK_2</text>
+                    <graphics>
+                        <offset x="48" y="10"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2355" y="2358"/>
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            <place id="P4">
+                <name>
+                    <text>EAT_2</text>
+                    <graphics>
+                        <offset x="33" y="-4"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2249" y="2268"/>
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            <place id="P5">
+                <name>
+                    <text>THINK_3</text>
+                    <graphics>
+                        <offset x="37" y="19"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2480" y="2593"/>
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            <place id="P6">
+                <name>
+                    <text>EAT_3</text>
+                    <graphics>
+                        <offset x="35" y="28"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2479" y="2709"/>
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            <transition id="t0">
+                <name>
+                    <text>TAKE_FORK_1</text>
+                    <graphics>
+                        <offset x="30" y="-1"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <rotation degree="42"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2539" y="2420"/>
+                </graphics>
+            </transition>
+            <transition id="t1">
+                <name>
+                    <text>BEGIN_EAT_1</text>
+                    <graphics>
+                        <offset x="29" y="-2"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <rotation degree="44"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2637" y="2331"/>
+                </graphics>
+            </transition>
+            <transition id="t2">
+                <name>
+                    <text>RETURN_FORKS_1</text>
+                    <graphics>
+                        <offset x="29" y="-2"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <rotation degree="44"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2681" y="2448"/>
+                </graphics>
+            </transition>
+            <transition id="t3">
+                <name>
+                    <text>TAKE_FORK_2</text>
+                    <graphics>
+                        <offset x="21" y="18"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <rotation degree="-44"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2410" y="2418"/>
+                </graphics>
+            </transition>
+            <transition id="t4">
+                <name>
+                    <text>BEGIN_EAT_2</text>
+                    <graphics>
+                        <offset x="35" y="12"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <rotation degree="-44"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2307" y="2328"/>
+                </graphics>
+            </transition>
+            <transition id="t5">
+                <name>
+                    <text>RETURN_FORKS_2</text>
+                    <graphics>
+                        <offset x="29" y="-2"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <rotation degree="44"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2451" y="2289"/>
+                </graphics>
+            </transition>
+            <transition id="t6">
+                <name>
+                    <text>TAKE_FORK_3</text>
+                    <graphics>
+                        <offset x="30" y="10"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <rotation degree="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2480" y="2540"/>
+                </graphics>
+            </transition>
+            <transition id="t7">
+                <name>
+                    <text>BEGIN_EAT_3</text>
+                    <graphics>
+                        <offset x="30" y="10"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <rotation degree="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2479" y="2663"/>
+                </graphics>
+            </transition>
+            <transition id="t8">
+                <name>
+                    <text>RETURN_FORKS_3</text>
+                    <graphics>
+                        <offset x="30" y="9"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <rotation degree="1"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2344" y="2584"/>
+                </graphics>
+            </transition>
+            <arc id="a0" source="t0" target="P1">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="a1" source="P1" target="t1">
+                <inscription>
+                    <text>2</text>
+                </inscription>
+            </arc>
+            <arc id="a2" source="t1" target="P2">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="a3" source="P0" target="t0">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="a4" source="P2" target="t2">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="a5" source="t2" target="P0">
+                <inscription>
+                    <text>2</text>
+                </inscription>
+            </arc>
+            <arc id="a6" source="P0" target="t3">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="a7" source="t3" target="P3">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="a8" source="P3" target="t4">
+                <inscription>
+                    <text>2</text>
+                </inscription>
+            </arc>
+            <arc id="a9" source="t4" target="P4">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="a10" source="P4" target="t5">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="a11" source="t5" target="P0">
+                <inscription>
+                    <text>2</text>
+                </inscription>
+            </arc>
+            <arc id="a12" source="P0" target="t6">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="a13" source="t6" target="P5">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="a14" source="P5" target="t7">
+                <inscription>
+                    <text>2</text>
+                </inscription>
+            </arc>
+            <arc id="a15" source="t7" target="P6">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="a16" source="P6" target="t8">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="a17" source="t8" target="P0">
+                <inscription>
+                    <text>2</text>
+                </inscription>
+            </arc>
+        </page>
+    </net>
+</pnml>

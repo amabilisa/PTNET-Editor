@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+    <net id="cId-76838737524772522561" type="http://www.pnml.org/version-2009/grammar/ptnet">
+        <name>
+            <text>Piscine</text>
+        </name>
+        <page id="page0">
+            <name>
+                <text>Piscine</text>
+            </name>
+            <place id="cId-773840572439763225716">
+                <name>
+                    <text>Cabines</text>
+                    <graphics>
+                        <offset x="33" y="-18"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2350" y="1857"/>
+                </graphics>
+                <initialMarking>
+                    <text>1</text>
+                </initialMarking>
+            </place>
+            <place id="cId-78193774406698601953">
+                <name>
+                    <text>Attente_P</text>
+                    <graphics>
+                        <offset x="20" y="-14"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2182" y="2091"/>
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            <place id="cId-777476037234455225817">
+                <name>
+                    <text>Paniers</text>
+                    <graphics>
+                        <offset x="-2" y="45"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2344" y="2171"/>
+                </graphics>
+                <initialMarking>
+                    <text>1</text>
+                </initialMarking>
+            </place>
+            <place id="cId-77747603723445522582">
+                <name>
+                    <text>Entree</text>
+                    <graphics>
+                        <offset x="-43" y="1"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2113" y="2089"/>
+                </graphics>
+                <initialMarking>
+                    <text>3</text>
+                </initialMarking>
+            </place>
+            <place id="cId-77747603723445522588">
+                <name>
+                    <text>Sortie</text>
+                    <graphics>
+                        <offset x="39" y="-6"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2593" y="2088"/>
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            <place id="cId-77747603723445522587">
+                <name>
+                    <text>Fini</text>
+                    <graphics>
+                        <offset x="37" y="-5"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2524" y="2104"/>
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            <place id="cId-77747603723445522586">
+                <name>
+                    <text>Habillage</text>
+                    <graphics>
+                        <offset x="15" y="-19"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2437" y="2096"/>
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            <place id="cId-77747603723445522584">
+                <name>
+                    <text>Deshabillage</text>
+                    <graphics>
+                        <offset x="9" y="41"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2273" y="2089"/>
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            <place id="cId-77764128598562036825">
+                <name>
+                    <text>Baignade</text>
+                    <graphics>
+                        <offset x="25" y="40"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2358" y="2102"/>
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            <transition id="cId-777641285985620368215">
+                <name>
+                    <text>Entrer_Piscine</text>
+                    <graphics>
+                        <offset x="21" y="-11"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <rotation degree="90"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2355" y="2297"/>
+                </graphics>
+            </transition>
+            <transition id="cId-778302279272294019514">
+                <name>
+                    <text>R_Cle2</text>
+                    <graphics>
+                        <offset x="30" y="10"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <rotation degree="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2542" y="2007"/>
+                </graphics>
+            </transition>
+            <transition id="cId-778302279272294019512">
+                <name>
+                    <text>P_Cle2</text>
+                    <graphics>
+                        <offset x="30" y="10"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <rotation degree="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2397" y="2043"/>
+                </graphics>
+            </transition>
+            <transition id="cId-778302279272294019513">
+                <name>
+                    <text>R_Panier</text>
+                    <graphics>
+                        <offset x="30" y="10"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <rotation degree="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2484" y="2182"/>
+                </graphics>
+            </transition>
+            <transition id="cId-77830227927229401959">
+                <name>
+                    <text>P_Cle1</text>
+                    <graphics>
+                        <offset x="30" y="10"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <rotation degree="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2141" y="2013"/>
+                </graphics>
+            </transition>
+            <transition id="cId-778302279272294019511">
+                <name>
+                    <text>R_Cle1</text>
+                    <graphics>
+                        <offset x="30" y="10"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <rotation degree="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2310" y="2044"/>
+                </graphics>
+            </transition>
+            <transition id="cId-778302279272294019510">
+                <name>
+                    <text>P_Panier</text>
+                    <graphics>
+                        <offset x="30" y="10"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <rotation degree="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2217" y="2182"/>
+                </graphics>
+            </transition>
+            <arc id="cId-778302279272294019530" source="cId-77747603723445522588" target="cId-777641285985620368215">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+                <graphics>
+                    <position x="2607.5" y="2299.5"/>
+                </graphics>
+            </arc>
+            <arc id="cId-779459017953469638731" source="cId-777641285985620368215" target="cId-77747603723445522582">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+                <graphics>
+                    <position x="2128.5" y="2301.5"/>
+                </graphics>
+            </arc>
+            <arc id="cId-779459017953469638734" source="cId-773840572439763225716" target="cId-778302279272294019512">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="cId-779459017953469638729" source="cId-778302279272294019514" target="cId-77747603723445522588">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="cId-779459017953469638727" source="cId-778302279272294019513" target="cId-77747603723445522587">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="cId-779624266704634781128" source="cId-77747603723445522587" target="cId-778302279272294019514">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="cId-779624266704634781123" source="cId-778302279272294019511" target="cId-77764128598562036825">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="cId-779624266704634781135" source="cId-778302279272294019514" target="cId-773840572439763225716">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+                <graphics>
+                    <position x="2556.5" y="1870.5"/>
+                </graphics>
+            </arc>
+            <arc id="cId-779624266704634781133" source="cId-778302279272294019511" target="cId-773840572439763225716">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="cId-779624266704634781124" source="cId-77764128598562036825" target="cId-778302279272294019512">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="cId-779624266704634781136" source="cId-777476037234455225817" target="cId-778302279272294019510">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="cId-779624266704634781126" source="cId-77747603723445522586" target="cId-778302279272294019513">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="cId-779624266704634781125" source="cId-778302279272294019512" target="cId-77747603723445522586">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="cId-779624266704634781148" source="cId-773840572439763225716" target="cId-77830227927229401959">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+                <graphics>
+                    <position x="2155.5" y="1872.5"/>
+                </graphics>
+            </arc>
+            <arc id="cId-779624266704634781118" source="cId-77747603723445522582" target="cId-77830227927229401959">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="cId-779624266704634781137" source="cId-778302279272294019513" target="cId-777476037234455225817">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="cId-779624266704634781122" source="cId-77747603723445522584" target="cId-778302279272294019511">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="cId-779624266704634781121" source="cId-778302279272294019510" target="cId-77747603723445522584">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="cId-779624266704634781119" source="cId-77830227927229401959" target="cId-78193774406698601953">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="cId-779128521310132813120" source="cId-78193774406698601953" target="cId-778302279272294019510">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+        </page>
+    </net>
+</pnml>

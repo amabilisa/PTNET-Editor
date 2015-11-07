@@ -1,0 +1,20 @@
+ Copier cette balise xml dans le fichier ptnet/shemas/anyElement.xsd:
+================================================================== 
+
+   <xs:group name="anyElement">
+    <xs:sequence>
+    <xs:choice>
+      <xs:element name="placeCapacity" >
+	  <xs:complexType>
+	     <xs:attribute name="capacity" type="xs:positiveInteger"/>
+  	  </xs:complexType>
+      </xs:element>	
+      <xs:element name="rotation">
+	  <xs:complexType>
+	     <xs:attribute name="degree" type="xs:decimal"/>
+  	  </xs:complexType>
+      </xs:element>
+    </xs:choice>
+    </xs:sequence>
+  </xs:group>
+
