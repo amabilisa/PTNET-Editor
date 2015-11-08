@@ -12,12 +12,6 @@ PTNET Editor is a Qt/C++ based application that allows you to graphically draw/e
 to animate it, to analyse it by constructing its coverability graph, to convert  it to an image file and to 
 save it in the standard PNML format.
 
-
-IMPORTANT: To test the application without passing by sections "2. PNML" and "3. RNG to XSD conversion",
-go to the "tabwidget.cpp" source file and comment steps [0], [1] et [2] in the method "validateXml(...). In other word,
-modify this method so that it always returns "true" saying that the PNML document is valide ... DO THAT AT YOUR OWN RISK!!!
-as a non validated document might crash the application if it doesn't respect the PNML specification!!!
-
 1. Requirements
 ---------------
 
@@ -67,6 +61,7 @@ have to:
 
        5. copy the xsd files in "ptnet/schemas"
        6. modify the "anyElement.xsd" by replacing the "xs:group" tag by the content of "ptnet/schemas/anyElement.txt"
+       7. IMPORTANT!!: Verify the include tags in "ptnet.xsd" and "pnmlcoremodel.xsd" and make sure that the file names are matching the converted XSD files. 
        
        
 4. Testing the application

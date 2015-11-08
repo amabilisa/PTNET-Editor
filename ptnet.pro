@@ -8,13 +8,14 @@ QT       += core gui xml xmlpatterns
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-DESTDIR=build #Target file directory
-OBJECTS_DIR=build #Intermediate object files directory
-MOC_DIR=build #Intermediate moc files directory
+DESTDIR=build 		#Target file directory
+OBJECTS_DIR=build/objs  #Intermediate object files directory
+MOC_DIR=build/moc 	#Intermediate moc files directory
+RCC_DIR=build/resources
 
 TARGET = ptnet
 TEMPLATE = app
-RESOURCES     = resources.qrc
+RESOURCES = resources.qrc
 
 CONFIG += link_pkgconfig
 PKGCONFIG = libgvc
