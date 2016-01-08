@@ -365,12 +365,11 @@ void MainWindow::about()
     QString Msg(tr("<h3>PTNET Editor</h3>"\
                 "<h5>Based on Qt 4.8.4 (32 bit)</h5>"\
                 "<p><strong>PTNET Editor</strong> is a Qt based application." \
-                " It incorporates several functionalities which allows the user"\
+                " It incorporates several functionalities allowing the user"\
                 " to draw, edit, animate, analyse by constructing the coverability/reachability graph,"\
                 " convert to image format and open/save as a PNML document a <strong>Place/Transition Net</strong>.<p>" \
                 "As it was mentioned above, the application use the standard "\
                 "<a href=\"www.pnml.org\">PNML</a> exanchge format and specifications."\
-                "<p>The application was developped as part of my Final Project in june 2013.<p>"\
                 "<p><strong>Author:</strong> <a href=\"mailto:iabdallah@yandex.com\">Issam abdallah</a>.</p>"\
                 "Tunisia, 2013.</p>"));
 

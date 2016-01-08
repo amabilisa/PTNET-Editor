@@ -151,7 +151,6 @@ bool TabWidget::open (MessageHandler &messageHandler)
 
 bool TabWidget::validateXml(QFile& file, MessageHandler &messageHandler)
 {
-    // begin comment /*
     //![0] validate XML schema
     QXmlSchema schema;
     schema.setMessageHandler(&messageHandler);
@@ -175,8 +174,6 @@ bool TabWidget::validateXml(QFile& file, MessageHandler &messageHandler)
         file.close();
         return false;
     }
-
-    // end comment */
 
   return true;
 }

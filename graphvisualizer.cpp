@@ -9,7 +9,8 @@
 **************************************************************/
 
 #include "graphvisualizer.h"
-#include <graphviz/gvc.h>
+
+#include <QDebug>
 
 // 1 INCHE = 71.9999999 pixel (point)
 #define INCHE 71.9999999
@@ -31,18 +32,18 @@ void GraphVisualizer::visualize_graph(
  GraphGenerator graphGen(init_Marking, cap_places, tr_relations);
  Graph g = graphGen.generate_graph();
 
- //![0] clear the scene
+//![0] clear the scene
  if(!items().isEmpty())
      erase_graph();
 
- //![1] Laying the graph using GraphViz library. See:
- //! http://www.graphviz.org/doc/libguide/libguide.pdf
- //! http://www.graphviz.org/pdf/Agraph.pdf
- QString layout_data = create_graph_layout();
+//![1] Laying the graph using GraphViz library. See:
+//! http://www.graphviz.org/doc/libguide/libguide.pdf
+//! http://www.graphviz.org/pdf/Agraph.pdf
+ QString graph_attrs = create_graph_layout();
 
- //![2] Extract for each edge and node the list of attributes
- // separated by single spaces within a QStringList
- QStringList attributes = layout_data.split("\n");
+//![2] Extract for each edge and node the list of attributes
+// separated by single spaces within a QStringList
+ QStringList attributes = graph_attrs.split("\n");
  attributes.removeFirst();
  attributes.removeLast();
  attributes.removeLast();
@@ -57,21 +58,21 @@ void GraphVisualizer::visualize_graph(
          edges_attrs << attr;
  }
 
-  //![3]
+//![3]
   visualize_nodes (nodes_attrs, g);
-  //![4]
+//![4]
   visualize_edges (edges_attrs);
 }
 
 QString GraphVisualizer::create_graph_layout()
 {
- GVC_t * gvc;
- graph_t * dot_graph;
+ Agraph_t * dot_graph; 
+
  FILE * fp;
 
- aginit();
  gvc = gvContext();
- // graph.dor was created by : graphGen.generate_graph()
+
+// graph.dot was created by : graphGen.generate_graph()
  fp = fopen("graph.dot", "r");
 
 #ifdef WITH_CGRAPH
@@ -79,34 +80,32 @@ QString GraphVisualizer::create_graph_layout()
 #else
     dot_graph = agread(fp);
 #endif
+    
+  agsafeset(dot_graph, (char*)"overlap", (char*)"scalexy", (char*)"");
+  agsafeset(dot_graph, (char*)"splines", (char*)"true", (char*)"");
+  agsafeset(dot_graph, (char*)"pad", (char*)"0,2", (char*)"");
+  agsafeset(dot_graph, (char*)"dpi", (char*)"96,0", (char*)"");
+  agsafeset(dot_graph, (char*)"sep",(char*)"+25,25", (char*)"");
+  agsafeset(dot_graph, (char*)"nodesep", (char*)"0.5", (char*)"");
+  agsafeset(dot_graph, (char*)"rankdir", (char*)"BT", (char*)"");
+  agsafeset(dot_graph, (char*)"root", (char*)"0", (char*)"");
+  agsafeset(dot_graph, (char*)"rank", (char*)"same", (char*)"");
+  agsafeset(dot_graph, (char*)"labeldistance", (char*)"1.2", (char*)"");
 
-  agsafeset(dot_graph, (char*)"overlap", (char*)"scalexy", 0);
-  agsafeset(dot_graph, (char*)"splines", (char*)"true",0);
-  agsafeset(dot_graph, (char*)"pad", (char*)"0,2", 0);
-  agsafeset(dot_graph, (char*)"dpi", (char*)"96,0", 0);
-  agsafeset(dot_graph, (char*)"sep",(char*)"+25,25", 0);
-  agsafeset(dot_graph, (char*)"nodesep", (char*)"0.5", 0);
-  agsafeset(dot_graph, (char*)"rankdir", (char*)"BT", 0);
-  agsafeset(dot_graph, (char*)"root", (char*)"0", 0);
-  agsafeset(dot_graph, (char*)"rank", (char*)"same", 0);
-  agsafeset(dot_graph, (char*)"labeldistance", (char*)"1.2", 0);
-
-  fclose(fp);
- // Laying out the graph using a graph layout
- // algo: dot, neato, fdp, sfdp
+// Laying out the graph using a graph layout algo: dot, neato, fdp, sfdp
  gvLayout(gvc, dot_graph, "dot");
- // attaches the computed position information to the nodes and edges
+// attaches the computed position information to the nodes and edges and output the rendering to character buffer
  unsigned int len;
- char *result;
- gvRenderData(gvc, dot_graph, "plain", &result, &len);
- // "plain_text_data" contains the node and edges attributes in plain output format.
- // See the plain text format to understand the remainder of this method!
- QString layout_data(result);
- free(result);
+ char *buffer;
+ gvRenderData(gvc, dot_graph, "plain", &buffer, &len);
+// The buffer contains the node and edges attributes in plain output format.
+ QString graph_attr(buffer);
+ gvFreeRenderData(buffer);
  gvFreeLayout(gvc, dot_graph);
  agclose(dot_graph);
-
- return layout_data;
+ fclose(fp);
+  
+ return graph_attr;
 }
 
 /* Visualize nodes*/
@@ -129,16 +128,16 @@ void GraphVisualizer::visualize_node(const QStringList& attrs, const Marking& M)
 {
  QVariant v(attrs[1]);
  int id = v.toInt();
- // x coord of the node's shape's center in inche
+// x coord of the node's shape's center in inche
  v.setValue(attrs[2]);
  float x = v.toFloat() * INCHE;
- // y coord of the node's shape's center in inche
+// y coord of the node's shape's center in inche
  v.setValue(attrs[3]);
  float y = v.toFloat() * INCHE;
- // the node's shape's width in inche
+// the node's shape's width in inche
  v.setValue(attrs[4]);
  float wd = v.toFloat() * INCHE;
- // the node's shape's height in inche
+// the node's shape's height in inche
  v.setValue(attrs[5]);
  float ht = v.toFloat() * INCHE;
 
