@@ -8,6 +8,10 @@
 **    main.cpp
 **************************************************************/
 
+#ifndef OUTLINEWIDTH
+#define OUTLINEWIDTH 20
+#endif
+
 #include "arc.h"
 
 #include <qmath.h>
@@ -150,7 +154,10 @@ QPainterPath Arc::shape() const
 {
     QPainterPath currentPath = path();
     currentPath.addPolygon(ArcHead);
-    return currentPath;
+    QPainterPathStroker painterPathStroker;
+    painterPathStroker.setWidth(OUTLINEWIDTH);
+    QPainterPath arcOutline = painterPathStroker.createStroke(currentPath);
+    return arcOutline;
 }
 
 QRectF Arc::boundingRect() const

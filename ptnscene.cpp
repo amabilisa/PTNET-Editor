@@ -186,7 +186,7 @@ void PTNscene::mousePressEvent ( QGraphicsSceneMouseEvent * mouseEvent )
 
         currentItem = itemAt(mouseEvent->scenePos());
 
-        if(currentItem == 0)
+        if((currentItem == 0)&&(currentItem->type() == Arc::Type))
         {
            origin = mouseEvent->scenePos();
            selectionRect = new QGraphicsRectItem;
