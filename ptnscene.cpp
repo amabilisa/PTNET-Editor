@@ -189,11 +189,7 @@ void PTNscene::mousePressEvent ( QGraphicsSceneMouseEvent * mouseEvent )
         if((currentItem == 0)||(currentItem->type() == Arc::Type))
         {
            origin = mouseEvent->scenePos();
-           selectionRect = new QGraphicsRectItem;
-           selectionRect->setZValue(2000.0);
-           selectionRect->setPen(QPen(Qt::darkBlue, 1,
-           Qt::SolidLine, Qt::RoundCap, Qt::MiterJoin));
-           selectionRect->setBrush(QColor(0, 0, 255, 20));
+           selectionRect = new SceneSelectionRectangle;
            addItem(selectionRect);
         }
         else

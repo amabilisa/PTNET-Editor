@@ -25,6 +25,7 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     tabwidget.cpp \
     arcedgeselectionrectangle.cpp \
+    sceneselectionrectangle.cpp \
     dockwidget.cpp \
     ptntab.cpp \
     ptnscene.cpp \
@@ -49,6 +50,7 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h \
     tabwidget.h \
     arcedgeselectionrectangle.h \
+    sceneselectionrectangle.h \
     xmlwriter.h \
     dockwidget.h \
     messagehandler.h \

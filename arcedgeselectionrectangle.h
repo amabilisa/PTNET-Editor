@@ -5,11 +5,11 @@
 **
 **    License: GPLv2  http://www.gnu.org/licenses/gpl-2.0.html
 **
-**    rectangle.h
+**    arcedgeselectionrectangle.h
 **************************************************************/
 
-#ifndef __RECTANGLE_H
-#define __RECTANGLE_H
+#ifndef __ARCSELECTIONRECTANGLE_H
+#define __ARCSELECTIONRECTANGLE_H
 
 #include <QPainter>
 #include <QGraphicsRectItem>

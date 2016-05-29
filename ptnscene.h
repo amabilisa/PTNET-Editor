@@ -18,6 +18,7 @@
 #include "place.h"
 #include "transition.h"
 #include "arc.h"
+#include "sceneselectionrectangle.h"
 
 class PTNscene : public QGraphicsScene
 {
@@ -72,7 +73,8 @@ private:
 
     QGraphicsItem     * currentItem;
     QGraphicsPathItem * pathitem;
-    QGraphicsRectItem * selectionRect;
+    
+    SceneSelectionRectangle * selectionRect;
 
     QList<QPointF> points;
     QPointF origin, oldPos, currentPos;
