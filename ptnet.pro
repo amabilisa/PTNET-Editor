@@ -24,7 +24,7 @@ PKGCONFIG += libgvc
 SOURCES += main.cpp\
         mainwindow.cpp \
     tabwidget.cpp \
-    rectangle.cpp \
+    arcedgeselectionrectangle.cpp \
     dockwidget.cpp \
     ptntab.cpp \
     ptnscene.cpp \
@@ -48,7 +48,7 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     tabwidget.h \
-    rectangle.h \
+    arcedgeselectionrectangle.h \
     xmlwriter.h \
     dockwidget.h \
     messagehandler.h \

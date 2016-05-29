@@ -15,7 +15,7 @@
 #include <QPainterPath>
 #include <QGraphicsSimpleTextItem>
 
-#include "rectangle.h"
+#include "arcedgeselectionrectangle.h"
 
 #include "defs.h"
 
@@ -66,7 +66,7 @@ class Arc : public QGraphicsPathItem
     QPolygonF ArcHead;
     QGraphicsSimpleTextItem * label;
 
-    QList<Rectangle *> rects;
+    QList<ArcEdgeSelectionRectangle *> rects;
 
     QGraphicsItem * sourceItem;
     QGraphicsItem * targetItem;

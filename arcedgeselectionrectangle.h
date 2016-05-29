@@ -14,10 +14,10 @@
 #include <QPainter>
 #include <QGraphicsRectItem>
 
-class Rectangle : public QGraphicsRectItem
+class ArcEdgeSelectionRectangle : public QGraphicsRectItem
 {
  public:
-    Rectangle(QGraphicsItem * parent, float shape);
+    ArcEdgeSelectionRectangle(QGraphicsItem * parent, float shape);
 	QVariant itemChange (GraphicsItemChange change, const QVariant &value);
 
  protected:

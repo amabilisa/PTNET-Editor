@@ -15,7 +15,6 @@
 #include "arc.h"
 
 #include <qmath.h>
-#include <QDebug>
 
 static const double Pi = 3.14159265358979323846264338327950288419717;
 static double TwoPi = 2.0 * Pi;
@@ -62,7 +61,7 @@ void Arc::createArc()
 
     for(int i = 1; i < path().elementCount()-1; i++ )
      {
-        Rectangle * rec = new Rectangle(this,7);
+        ArcEdgeSelectionRectangle * rec = new ArcEdgeSelectionRectangle(this,7);
         rec->setPos(path().elementAt(i).x - 7/2, path().elementAt(i).y - 7/2);
         rects << rec;
      }
@@ -89,7 +88,7 @@ Arc::~Arc()
 {
     delete label;
 
-    foreach(Rectangle * rect, rects)
+    foreach(ArcEdgeSelectionRectangle * rect, rects)
         delete rect;
 }
 
@@ -125,7 +124,7 @@ QGraphicsItem * Arc::getTargetItem() const
 /* show rects */
 void Arc::showRects(bool show)
 {
-    foreach(Rectangle * rec, rects)
+    foreach(ArcEdgeSelectionRectangle * rec, rects)
         rec->setVisible(show);
 }
 
@@ -192,7 +191,7 @@ void Arc::paint ( QPainter * painter,
        head_point = intersectionPoint2(targetItem, &lastLine);
 
     int i = 1;
-    foreach(Rectangle * rec, rects)
+    foreach(ArcEdgeSelectionRectangle * rec, rects)
     {
        QPointF p = mapFromItem(rec, rec->boundingRect().center());
        paintpath.setElementPositionAt(i, p.x(), p.y());

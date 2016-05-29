@@ -97,7 +97,7 @@ void PTNscene::removeItems()
 
     foreach(QGraphicsItem * item, selectedItems())
        if(item->type() == QGraphicsSimpleTextItem::Type
-            || item->type() == Rectangle::Type)
+            || item->type() == ArcEdgeSelectionRectangle::Type)
            item->setSelected(false);
 
     /* remove arcs before */

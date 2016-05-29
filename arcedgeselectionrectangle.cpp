@@ -8,9 +8,9 @@
 **    rectangle.cpp
 **************************************************************/
 
-#include "rectangle.h"
+#include "arcedgeselectionrectangle.h"
 
-Rectangle::Rectangle(QGraphicsItem * parent, float shape)
+ArcEdgeSelectionRectangle::ArcEdgeSelectionRectangle(QGraphicsItem * parent, float shape)
 	:QGraphicsRectItem(parent)
 {
   shape_length = shape;
@@ -20,7 +20,7 @@ Rectangle::Rectangle(QGraphicsItem * parent, float shape)
   setFlag(QGraphicsItem::ItemIsSelectable, true);
 }
 
-QVariant Rectangle::itemChange (GraphicsItemChange change, const QVariant &value)
+QVariant ArcEdgeSelectionRectangle::itemChange (GraphicsItemChange change, const QVariant &value)
 {
   if ((change == QGraphicsItem::ItemSelectedHasChanged) && (isSelected()))
 	parentItem()->setSelected(true);
@@ -28,7 +28,7 @@ QVariant Rectangle::itemChange (GraphicsItemChange change, const QVariant &value
   return value;
 }
 
-void Rectangle::paint ( QPainter * painter, 
+void ArcEdgeSelectionRectangle::paint ( QPainter * painter, 
 	const QStyleOptionGraphicsItem * option, QWidget * widget )
 {
   Q_UNUSED(option);
