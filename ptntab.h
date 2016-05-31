@@ -54,6 +54,7 @@ public:
     bool checkNet ();
     bool checkMarking();
     bool checkNodesConnections();
+    void checkNodesNames();
 
     GraphVisualizer * createGraphVis ();
     GraphVisualizer * getGraphVis ();

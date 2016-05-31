@@ -33,9 +33,9 @@ void MainWindow::open ()
 {
     statusBar->showMessage("Open an existing PNML document ...");
     if(tabWidget->open(buttomDock->getMessageHandler()))
-        statusBar->showMessage("Document loaded and opened", 1000);
+        statusBar->showMessage("Document loaded and opened.", 1000);
     else
-        statusBar->showMessage("Document was not opened", 1000); 
+        statusBar->showMessage("Document was not opened.", 1000); 
 }
 
 /* button group clicked */

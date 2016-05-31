@@ -232,6 +232,8 @@ bool PTNtab::checkNet ()
                            "No firable transition found ...</span>");
 
     ok = checkNodesConnections();
+    
+    checkNodesNames();
 
     return ok;
 }
@@ -288,6 +290,31 @@ bool PTNtab::checkNodesConnections()
   return ok;
 }
 
+//![2] check nodes names uniqueness!
+void PTNtab::checkNodesNames()
+{
+
+    QStringList plnames;
+    QStringList trnames;
+    
+    foreach(QGraphicsItem * item , scene->items())
+    {
+        if(item->type() == Place::Type)
+            plnames << (qgraphicsitem_cast<Place*>(item))->getName();
+
+        if(item->type() == Transition::Type)
+            trnames << (qgraphicsitem_cast<Transition*>(item))->getName();
+    }
+    
+    if(plnames.removeDuplicates())
+                        emit errorMessage ("  <span style=\"color:orange;\">Warning: Places names are not unique !</span>");
+  
+
+    if(trnames.removeDuplicates())
+                        emit errorMessage ("  <span style=\"color:orange;\">Warning: Transitions names are not unique !</span>");
+
+}
+
 /* error message */
 void PTNtab::showErrorMessage (const QString &title, const QString &errorMsg)
 {
@@ -299,8 +326,9 @@ GraphVisualizer * PTNtab::createGraphVis ()
     Marking initial_marking = scene->getInitialMarking ();
     QMap<QString, int> places_capacities = scene->getPlacesCapacities ();
     QList<TRANS_RELATION> pt_relations = scene->getRelations ();
+    QMap<QString, QString> places_names = scene->getPlacesNames ();
 
-    graphVis->visualize_graph(initial_marking, places_capacities, pt_relations);
+    graphVis->visualize_graph(initial_marking, places_capacities, places_names, pt_relations);
 
     return graphVis;
 }
@@ -376,18 +404,25 @@ void PTNtab::placeDoubleClicked (QGraphicsItem* item)
     place->setTokens(placeEditDialog->inputTokens->value());
     place->setCapacity(placeEditDialog->inputCapacity->value());
 
+    int index = nodes_names.indexOf (old_name);
+    
     if (new_name != old_name)
     {
       if(!nodes_names.contains(new_name))
       {
-        int index = nodes_names.indexOf (old_name);
         nodes_names.replace (index, new_name); 
 	place->setName(new_name);      
       }
       else
       {
-        showErrorMessage("Not a unique name", "The place name <strong>"+
-                         new_name+"</strong> is already being used.");
+        QMessageBox::StandardButton button = QMessageBox::warning(this, "Not a unique name", "The place name <strong>"+
+                         new_name+"</strong> is already being used. Use it anyway ?", QMessageBox::Yes|QMessageBox::No, QMessageBox::No);
+        
+        if(button == QMessageBox::Yes)
+        {
+          nodes_names.replace (index, new_name); 
+	  place->setName(new_name);            
+        }
       }
     }
    
@@ -410,18 +445,26 @@ void PTNtab::transitionDoubleClicked (QGraphicsItem* item)
 
     QString new_name = transEditDialog->inputLabel->text();
     trans->setRotation (transEditDialog->slider->value());
+    
+    int index = nodes_names.indexOf (old_name);
+            
     if (new_name != old_name)
     {
       if(!nodes_names.contains(new_name))
       {
-        int index = nodes_names.indexOf (old_name);
         nodes_names.replace (index, new_name); 
 	trans->setName(new_name);      
       }
       else
       {
-        showErrorMessage("Not a unique name", "The transition name <strong>"+
-                         new_name+"</strong> is already being used.");
+        QMessageBox::StandardButton button = QMessageBox::warning(this, "Not a unique name", "The transition name <strong>"+
+                         new_name+"</strong> is already being used. Use it anyway ?", QMessageBox::Yes|QMessageBox::No, QMessageBox::No);
+        
+        if(button == QMessageBox::Yes)
+        {
+          nodes_names.replace (index, new_name); 
+	  trans->setName(new_name);            
+        }
       }
     }
 }

@@ -77,13 +77,13 @@ TRANS_RELATION Transition::getTrans_Relations() const
   foreach(Arc * arc, input)
    {
         Place * place = qgraphicsitem_cast<Place *>(arc->getSourceItem());
-        relation.preSet[place->getName()] = arc->getWeight();
+        relation.preSet[place->getId()] = arc->getWeight();
    }
 
   foreach(Arc * arc, output)
    {
         Place * place = qgraphicsitem_cast<Place *>(arc->getTargetItem());
-        relation.postSet[place->getName()] = arc->getWeight();
+        relation.postSet[place->getId()] = arc->getWeight();
    }
 
   return relation;

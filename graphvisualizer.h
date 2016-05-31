@@ -26,7 +26,8 @@ class GraphVisualizer : public QGraphicsScene
     ~GraphVisualizer();
     
     void visualize_graph (Marking& init_Marking,
-                          QMap<QString, int> &cap_places,
+                          QMap<QString, int> &cap_places, 
+                          QMap<QString, QString> places_names,
                           QList<TRANS_RELATION> &tr_relation);
     
  private:
@@ -41,6 +42,7 @@ class GraphVisualizer : public QGraphicsScene
     QPainterPath create_edge_curve(const QList<QPointF>& points);
     
     GVC_t * gvc;
+    QMap<QString, QString> placesNames;
 };
 
 #endif // GRAPHVISUALIZER_H

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+    <net id="net0" type="http://www.pnml.org/version-2009/grammar/ptnet">
+        <name>
+            <text>net0</text>
+        </name>
+        <page id="page0">
+            <name>
+                <text>net0</text>
+            </name>
+            <place id="P1">
+                <name>
+                    <text>H2</text>
+                    <graphics>
+                        <offset x="30" y="30"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2322" y="2344"/>
+                </graphics>
+                <initialMarking>
+                    <text>2</text>
+                </initialMarking>
+            </place>
+            <place id="P2">
+                <name>
+                    <text>O2</text>
+                    <graphics>
+                        <offset x="30" y="30"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2320" y="2449"/>
+                </graphics>
+                <initialMarking>
+                    <text>1</text>
+                </initialMarking>
+            </place>
+            <place id="P3">
+                <name>
+                    <text>H2O</text>
+                    <graphics>
+                        <offset x="30" y="30"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2657" y="2410"/>
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            <transition id="t0">
+                <name>
+                    <text>form H2O</text>
+                    <graphics>
+                        <offset x="35" y="30"/>
+                    </graphics>
+                </name>
+                <toolspecific tool="petrinet" version="1.0">
+                    <rotation degree="90"/>
+                </toolspecific>
+                <graphics>
+                    <position x="2513" y="2421"/>
+                </graphics>
+            </transition>
+            <arc id="a1" source="P1" target="t0">
+                <inscription>
+                    <text>2</text>
+                </inscription>
+            </arc>
+            <arc id="a2" source="P2" target="t0">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            <arc id="a3" source="t0" target="P3">
+                <inscription>
+                    <text>2</text>
+                </inscription>
+            </arc>
+        </page>
+    </net>
+</pnml>

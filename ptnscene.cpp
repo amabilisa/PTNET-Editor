@@ -60,7 +60,7 @@ void PTNscene::trakInitialMarking ()
         if(item->type() == Place::Type)
         {
             Place * place = qgraphicsitem_cast<Place*>(item);
-            initial_marking[place->getName()] = place->getTokens();
+            initial_marking[place->getId()] = place->getTokens();
         }
     }
 }
@@ -73,16 +73,16 @@ void PTNscene::resetInitialMarking()
         if(item->type() == Place::Type)
         {
             Place * place = qgraphicsitem_cast<Place*>(item);
-                    place->setTokens(initial_marking.value(place->getName()));
+                    place->setTokens(initial_marking.value(place->getId()));
         }
     }
 }
 
 /* enable/disable items selection */
-void PTNscene::enableSelection (bool select)
+void PTNscene::enableSelection (bool selectable)
 {
     foreach(QGraphicsItem * item, items())
-        item->setFlag(QGraphicsItem::ItemIsSelectable, select);
+        item->setFlag(QGraphicsItem::ItemIsSelectable, selectable);
 }
 
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
@@ -510,11 +510,27 @@ QMap<QString, int> PTNscene::getPlacesCapacities ()
 	    if(c == 0)
 		c = omega;
 
-            map[place->getName()] = c;
+            map[place->getId()] = c;
         }
     }
 
     return map;
+}
+ 
+QMap<QString, QString> PTNscene::getPlacesNames ()
+{
+    QMap<QString, QString> map;
+
+    foreach (QGraphicsItem * item, items())
+    {
+        if(item->type() == Place::Type)
+        {
+            Place * place = qgraphicsitem_cast<Place*>(item);
+            map[place->getId()] = place->getName();
+        }
+    }
+
+    return map;         
 }
 
 QList<TRANS_RELATION> PTNscene::getRelations () 

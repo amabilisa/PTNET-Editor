@@ -16,12 +16,14 @@
 #include "graphedge.h"
 #include "defs.h"
 
+struct NODELABEL{QString name; int mark;};
+
 class GraphNode : public QGraphicsEllipseItem
 {
 
  public:
 	enum { Type = UserType + 6 }; 
-    GraphNode(int node_index, const QMap<QString, int> &M, float width, float height);
+    GraphNode(int node_index, const QList<NODELABEL> &M, float width, float height);
 	~GraphNode();
 
 	int getIndex();
@@ -42,7 +44,7 @@ class GraphNode : public QGraphicsEllipseItem
  private:
 
 	int index;
-	QMap<QString, int> marking;
+	QList<NODELABEL> marking;
 	QGraphicsSimpleTextItem * label;
     QList<GraphEdge*> inedges;
     QList<GraphEdge*> outedges;

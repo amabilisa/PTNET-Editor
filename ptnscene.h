@@ -31,7 +31,7 @@ public:
 	
     void setMode (int mode);
     void removeItems();
-    void enableSelection (bool select);
+    void enableSelection (bool selectable);
     void trakInitialMarking ();
     void resetInitialMarking();
 
@@ -41,6 +41,7 @@ public:
     void addXML_arcs (const QList <ARC_ATTR> &arcs);
 
     Marking getInitialMarking () const;
+    QMap<QString, QString> getPlacesNames ();
     QMap<QString, int> getPlacesCapacities ();
     QList<TRANS_RELATION> getRelations ();
 
@@ -52,7 +53,8 @@ signals:
     void itemMoved (QGraphicsItem * movedItem, const QPointF &oldPosition);
     void nodeRemoved (QGraphicsItem * item, PTNscene * scene);
     void arcRemoved (QGraphicsItem * item, PTNscene * scene);
-    void nodesInserted (const QStringList &places_names);
+    void nodesInserted (const QStringList &names);
+   
     void itemDoubleClicked(QGraphicsItem * item);
 
 protected:

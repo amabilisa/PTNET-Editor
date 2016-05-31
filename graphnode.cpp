@@ -10,7 +10,7 @@
 
 #include "graphnode.h"
 
-GraphNode::GraphNode(int node_index, const QMap<QString, int> &M, float width, float height)
+GraphNode::GraphNode(int node_index, const QList<NODELABEL> &M, float width, float height)
     :QGraphicsEllipseItem()
 {
   index = node_index;
@@ -36,13 +36,13 @@ void GraphNode::createLabelText()
   label->setText(text);
   text.append(" = (");
 
-  foreach(int token, marking)
+  foreach(NODELABEL ndlabel, marking)
   {
-	 if(token == omega)
+	 if(ndlabel.mark == omega)
         text.append(QObject::trUtf8("\u0277")+",");
 	 else
 	  {
-	    v.setValue(token);
+	    v.setValue(ndlabel.mark);
         text.append(v.toString()+",");
 	  }
   }
@@ -56,11 +56,9 @@ void GraphNode::createLabelText()
 
   text.append("\n *(");
 
-  QMapIterator<QString, int> p(marking);
-  while (p.hasNext())
+  for(int i = 0; i <marking.size(); i++)
    {
-     p.next();
-     text.append(p.key()+",");
+     text.append(marking[i].name+",");
    }
 
   text.remove(text.count()-1, 2);

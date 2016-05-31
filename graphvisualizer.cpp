@@ -26,7 +26,8 @@ GraphVisualizer::GraphVisualizer()
 /* visualize the graph */
 void GraphVisualizer::visualize_graph(
         Marking& init_Marking,
-        QMap<QString, int> &cap_places,
+        QMap<QString, int> &cap_places, 
+        QMap<QString, QString> places_names,
         QList<TRANS_RELATION> &tr_relations)
 {
  GraphGenerator graphGen(init_Marking, cap_places, tr_relations);
@@ -36,6 +37,9 @@ void GraphVisualizer::visualize_graph(
  if(!items().isEmpty())
      erase_graph();
 
+ 
+ placesNames = places_names;
+ 
 //![1] Laying the graph using GraphViz library. See:
 //! http://www.graphviz.org/doc/libguide/libguide.pdf
 //! http://www.graphviz.org/pdf/Agraph.pdf
@@ -141,7 +145,21 @@ void GraphVisualizer::visualize_node(const QStringList& attrs, const Marking& M)
  v.setValue(attrs[5]);
  float ht = v.toFloat() * INCHE;
 
- GraphNode * item = new GraphNode(id, M, wd, ht);
+ // M maps places id to their marks. But we want to display, on the graphnode 
+ // infoball, places by their names not by their id:  
+   QList<NODELABEL> M1;
+   QMapIterator<QString, int> p1(M);
+   while (p1.hasNext())
+   {
+     p1.next();
+     int mark = p1.value();
+     QString name = placesNames.value(p1.key());
+     NODELABEL ndlabel = {name, mark};
+     M1 << ndlabel;
+   }
+ 
+// create the graphnode 
+ GraphNode * item = new GraphNode(id, M1, wd, ht);
  item->setPos(x + SCENEMID - wd/2, y + SCENEMID - ht/2);
  addItem(item);
 }
