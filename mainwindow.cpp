@@ -363,15 +363,14 @@ void MainWindow::closeEvent ( QCloseEvent * event )
 void MainWindow::about()
 {
     QString Msg(tr("<h3>PTNET Editor</h3>"\
-                "<h5>Based on Qt 4.8.4 (32 bit)</h5>"\
-                "<p><strong>PTNET Editor</strong> is a Qt based application." \
-                " It incorporates several functionalities allowing the user"\
-                " to draw, edit, animate, analyse by constructing the coverability/reachability graph,"\
-                " convert to image format and open/save as a PNML document a <strong>Place/Transition Net</strong>.<p>" \
+                "<h5>Based on Qt 4.8.6 </h5>"\
+                "<p><strong>PTNET Editor</strong> is a Qt desktop application." \
+                " It users to draw, edit, animate, analyse by constructing the coverability graph,"\
+                " convert to image format and open/save as a PNML document an ordinary <strong>Place/Transition Net</strong>.<p>" \
                 "As it was mentioned above, the application use the standard "\
-                "<a href=\"www.pnml.org\">PNML</a> exanchge format and specifications."\
+                "<a href=\"www.pnml.org\">PNML</a> exanchge format."\
                 "<p><strong>Author:</strong> <a href=\"mailto:iabdallah@yandex.com\">Issam abdallah</a>.</p>"\
-                "Tunisia, 2013.</p>"));
+                "Tunisia, 2013-2016</p>"));
 
     QMessageBox::about(this, "About PTNET Editor", Msg);
 }
